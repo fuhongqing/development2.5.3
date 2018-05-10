@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>易好房</title>
+	<link href="http://www.ehaofang.com/img/ef.ico" type="image/x-icon" rel="icon"/>
+	<link href="http://www.ehaofang.com/img/ef.ico" type="image/x-icon" rel="shortcut icon"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="http://images.ehaofang.com/nav/css/style.css"/>
+	<style type="text/css">
+		.content {
+			height: 100%;
+			width: 100%;
+			border-top: 1px solid #fff;
+		}
+
+		.pageDiv {
+			height: 200px;
+			width: 300px;
+			margin: 160px auto 0;
+		}
+
+		.pageDiv h2 {
+			line-height: 48px;
+			font-size: 32px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.pageDiv ul {
+			width: 100%;
+			border-top: 1px solid #d8d8d8;
+			padding: 20px 0;
+			color: #757575;
+			font-size: 18px;
+		}
+
+		.pageDiv ul li {
+			line-height: 26px;
+		}
+
+		.pageDiv ul li p {
+			text-indent: 50px;
+			display: inline-block;
+		}
+
+		.pageDiv ul li span {
+			display: inline-block;
+			text-align: right;
+			width: 120px;
+		}
+
+		.pageDiv h3 {
+			line-height: 22px;
+			font-size: 22px;
+			font-weight: 500;
+			margin-top: 10px;
+			padding-left: 50px;
+		}
+
+		.pageDiv h3 i {
+			margin-right: 10px;
+		}
+
+		.pageDiv h3 a {
+			margin-left: 40px;
+			cursor: pointer;
+			color: #ED9127;
+		}
+
+		.pageLogo {
+			height: 180px;
+			width: 260px;
+			margin: 0 auto;
+		}
+
+		.pageLogo img {
+			height: 80%;
+			width: 100%;
+		}
+	</style>
+
+</head>
+<body>
+<div class="topWrap">
+	<div class="top">
+		<div class="logo">
+			<a href="javascript:;">
+				<img src="http://images.ehaofang.com/nav/img/Logo.png" alt="易好房楼盘开发" title="易好房楼盘开发"/>
+			</a>
+		</div>
+		<div class="mine">
+			<div></div>
+			<a id="userName" href="javascript:;"></a>
+			<a href="javascript:;">退出</a>
+		</div>
+		<ul class="nav">
+			<li class="singleNav">首页</li>
+			<li class="singleNav">项目经营</li>
+			<li class="navActive1 navActive">项目开发
+				<i class=" icon-caret-down"></i>
+				<div>
+					<dl>
+						<p id="property" class="navItemActive1 navItemActive"><a href="javascript:;">开发楼盘</a></p>
+						<p id="land"><a href="javascript:;">土地拍卖</a></p>
+						<span></span>
+					</dl>
+				</div>
+			</li>
+			<li>渠道
+				<i class=" icon-caret-down"></i>
+				<div>
+					<dl>
+						<p><a href="javascript:;">渠道公司</a></p>
+						<p><a href="javascript:;">门店</a></p>
+						<p><a href="javascript:;">经纪人</a></p>
+						<span></span>
+					</dl>
+				</div>
+
+			</li>
+            <li>客户
+                <i class=" icon-caret-down"></i>
+                <div>
+                    <dl>
+                        <p><a href="javascript:;">客户中心</a></p>
+                        <p><a href="javascript:;">报备记录</a></p>
+                        <p><a href="javascript:;">来访记录</a></p>
+                    </dl>
+                </div>
+            </li>
+			<li>交易中心
+				<i class=" icon-caret-down"></i>
+				<div>
+					<dl>
+						<p><a href="javascript:;">交易列表</a></p>
+						<p><a href="javascript:;">申佣列表</a></p>
+						<span></span>
+					</dl>
+				</div>
+			</li>
+			<li>财务中心
+				<i class=" icon-caret-down"></i>
+				<div>
+					<dl>
+						<p id="financeCenter"><a href="javascript:;">报销</a></p>
+						<p><a href="javascript:;">盈亏损益</a></p>
+						<span></span>
+					</dl>
+				</div>
+			</li>
+			<li>组织架构
+				<i class=" icon-caret-down"></i>
+				<div>
+					<dl>
+						<p><a href="javascript:;">员工中心</a></p>
+						<p><a href="javascript:;">部门管理</a></p>
+						<span></span>
+					</dl>
+				</div>
+			</li>
+			<li class="singleNav">数据中心</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="pageDiv">
+		<div class="pageLogo">
+			<img src="http://images.ehaofang.com/nav/img/pageLogo.png"/>
+		</div>
+		<h2>哎呀，出错啦！</h2>
+		<ul>
+			<li><span>可能原因：</span>• 网络信号弱</li>
+			<li><span></span>• 找不到请求页面</li>
+			<li><span></span>• 输入的网址不正确</li>
+		</ul>
+
+		<h3>
+			<a href="javascript:history.go(-1);" id="refresh"><i class=" icon-repeat"></i>刷新</a>
+			<a href="javascript:history.go(-1);" id="goBack"><i class=" icon-reply"></i>返回</a>
+		</h3>
+	</div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://images.ehaofang.com/nav/js/nav.js"></script>
+</body>
+</html>

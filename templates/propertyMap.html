@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>易好房地图找房</title>
+		<link href="http://www.ehaofang.com/img/ef.ico" type="image/x-icon" rel="icon" />
+		<link href="http://www.ehaofang.com/img/ef.ico" type="image/x-icon" rel="shortcut icon" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui-append.min.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/propertyMap.css" />
+		<link rel="stylesheet" type="text/css" href="http://images.ehaofang.com/nav/css/style.css" />
+	</head>
+	<body>
+		<div class="topWrap">
+			<div class="top">
+				<div class="logo">
+					<a>
+						<img src="http://images.ehaofang.com/nav/img/Logo.png" alt="易好房工作站系统" title="易好房工作站系统" />
+					</a>
+				</div>
+				<div class="mine">
+					<div></div>
+					<a id="userName" href="javascript:;"></a>
+					<a href="javascript:;">退出</a>
+				</div>
+				<ul class="nav">
+					<li class="singleNav">首页</li>
+					<li class="singleNav">项目经营</li>
+					<li class="navActive1 navActive">项目开发
+						<i class=" icon-caret-down"></i>
+						<div>
+							<dl>
+								<p id="property" class="navItemActive1 navItemActive"><a href="javascript:;">开发楼盘</a></p>
+								<p id="land"><a href="javascript:;">土地拍卖</a></p>
+								<span></span>
+							</dl>
+						</div>
+					</li>
+					<li>渠道
+						<i class=" icon-caret-down"></i>
+						<div>
+							<dl>
+								<p><a href="javascript:;">渠道公司</a></p>
+								<p><a href="javascript:;">门店</a></p>
+								<p><a href="javascript:;">经纪人</a></p>
+								<span></span>
+							</dl>
+						</div>
+					
+					</li>
+		            <li>客户
+		                <i class=" icon-caret-down"></i>
+		                <div>
+		                    <dl>
+		                        <p><a href="javascript:;">客户中心</a></p>
+		                        <p><a href="javascript:;">报备记录</a></p>
+		                        <p><a href="javascript:;">来访记录</a></p>
+		                    </dl>
+		                </div>
+		            </li>
+					<li>交易中心
+						<i class=" icon-caret-down"></i>
+						<div>
+							<dl>
+								<p><a href="javascript:;">交易列表</a></p>
+								<p><a href="javascript:;">申佣列表</a></p>
+								<span></span>
+							</dl>
+						</div>
+					</li>
+					<li>财务中心
+						<i class=" icon-caret-down"></i>
+						<div>
+							<dl>
+								<p id="financeCenter"><a href="javascript:;">报销</a></p>
+								<p><a href="javascript:;">盈亏损益</a></p>
+								<span></span>
+							</dl>
+						</div>
+					</li>
+					<li>组织架构
+						<i class=" icon-caret-down"></i>
+						<div>
+							<dl>
+								<p><a href="javascript:;">员工中心</a></p>
+								<p><a href="javascript:;">部门管理</a></p>
+								<span></span>
+							</dl>
+						</div>
+					</li>
+					<li class="singleNav">数据中心</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mainWrap">
+			<div class="header" id="list-model">列表模式</div>
+			<div class="map_tip" id="map_tip">
+				<div class="map_tip_loading">
+					<i class="loading_pic"></i>
+					房源加载中...
+				</div>
+			</div>
+			<div id="allmap">
+			</div>
+			
+			<div class="content">
+				<div class="filterDiv">
+					<div class="filterDiv1">
+						
+						<div class="searchWrap">
+							<input type="text" name="search" id="search" placeholder="请输入楼盘名搜索" value="" />
+							<span class="searchIcon" id="searchBtn">
+								<i class="icon-search"></i>
+							</span>
+						</div>						
+						<div class="searchWrap areaSearch" id="r-result">
+								<input id="autocomplete"  value="" type="text" name="country" placeholder="请选择城市..." class="input-xlarge" autocomplete="off" />
+								<!--<i class="sui-icon icon-pc-chevron-bottom"></i>-->
+							
+							<!--<input type="text" name="search"  id="suggestId"  placeholder="请输入地区搜索" value="" />-->
+							<!--<span class="searchIcon">
+								<i class="icon-search"></i>
+							</span>-->
+						</div>
+						<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:180px;height:auto;display:none;"></div>
+
+					</div>
+					<div class="filterDiv2">
+						<span class="sui-dropdown dropdown-bordered dropdown-xlarge select">
+							<span class="dropdown-inner">
+								<a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+							      <input value="" name="跟进状态" id="FollowType" type="hidden" />
+							      <i class="caret"></i>
+							      <span>跟进状态</span>
+								</a>
+								<ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+									<li role="presentation" class="active">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="">全部</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">待扫盘</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="2">扫盘中</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="3">维护中</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="4">已提报</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="5">商务谈判</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="6">合同签订</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="7">无效盘</a>
+									</li>
+								</ul>
+							</span>
+						</span>						
+						<span class="sui-dropdown dropdown-bordered dropdown-xlarge select">
+							<span class="dropdown-inner">
+								<a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+							      <input value="" name="类型" id="buildingType" type="hidden" />
+							      <i class="caret"></i>
+							      <span>类型</span>
+								</a>
+								<ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+									<li role="presentation" class="active">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="">全部</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">别墅</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="2">住宅</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="3">商业</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="4">其他</a>
+									</li>
+								</ul>
+							</span>
+						</span>						
+						<span class="sui-dropdown dropdown-bordered dropdown-xlarge select">
+							<span class="dropdown-inner">
+								<a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+							      <input value="" name="货值" id="saleValue" type="hidden" />
+							      <i class="caret"></i>
+							      <span>货值</span>
+								</a>
+								<ul role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+									<li role="presentation" class="active">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="">全部</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">1亿以内</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="2">1-3亿</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="3">3-10亿</a>
+									</li>
+									<li role="presentation">
+										<a role="menuitem" tabindex="-1" href="javascript:void(0);" value="4">10亿以上</a>
+									</li>
+								</ul>
+							</span>
+						</span>						
+						<!--<select name="跟进状态" id="FollowType">
+							<option value="" disabled='disabled' selected='selected'>跟进状态</option>
+							<option value="1">待扫盘</option>
+							<option value="2">扫盘中</option>
+							<option value="3">维护中</option>
+							<option value="4">已提报</option>
+							<option value="5">商务谈判</option>
+							<option value="6">合同签订</option>
+							<option value="7">无效盘</option>
+							<option value="">全部</option>
+						</select>-->
+						<!--<select name="类型" id="buildingType">
+							<option value="" disabled='disabled' selected='selected'>类型</option>
+							<option value="1">别墅</option>
+							<option value="2">住宅</option>
+							<option value="3">商业</option>
+							<option value="4">其他</option>
+							<option value="">全部</option> 
+						</select>-->
+						<!--<select name="货值" id="saleValue" >
+							<option value="" disabled='disabled' selected='selected'>货值</option>
+							<option value="1">1亿以内</option>
+							<option value="2">1-3亿</option>
+							<option value="3">3-10亿</option>
+							<option value="4">10亿以上</option>
+							<option value="">全部</option>
+						</select>-->
+					</div>
+				</div>
+				<div class="listDiv">
+					<div class="listTop">
+						项目
+						<span>[]</span>
+					</div>
+					<ul>
+						<!--<li>
+							<div>
+								<p>水月周庄</p>
+								<p><span>别墅</span><i>维护</i></p>
+							</div>
+							<div>
+								<p>独家代理</p>
+								<p>[上海-松江]斯凯路192号</p>
+							</div>
+							<div>
+								<p>6亿</p>
+								<p>300套</p>
+							</div>
+						</li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>-->
+					</ul>
+				</div>
+				<div class="turn">
+				</div>
+			</div>
+		</div>
+		<!--<div class="box">
+			<h3>水月周庄<span>在售</span></h3>
+			<p>上海-长宁<i>|</i>3亿<i>|</i>500套</p>
+			<b>别墅</b>
+		</div>-->
+		
+		<script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=CB2ede775afeb6e413abd40261396a69"></script>
+		<script type="text/javascript" src="http://images.ehaofang.com/nav/js/nav.js"></script>
+		<script type="text/javascript" src="../static/js/propertyMap.js?v=7ff07cb952" ></script>
+	</body>
+</html>
